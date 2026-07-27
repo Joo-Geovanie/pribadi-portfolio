@@ -14,7 +14,7 @@ const supabase = useSupabaseClient()
 const companyProfile = ref({
   name: 'YOSEP GEOVANIE ARITONANG',
   hero_title: 'FULL-STACK DEVELOPER',
-  hero_subtitle: 'A full-stack dev from Indonesia — navigating the space between clean interfaces, smooth 3D visuals, and reliable backend systems.',
+  hero_subtitle: 'A full-stack dev from Indonesia // crafting clean interfaces, smooth 3D visuals, and solid backends.',
   about_text: 'Building web applications with Vue 3, Nuxt 3, Next.js, TypeScript, Python, and modern cloud databases.'
 })
 
@@ -474,7 +474,7 @@ onMounted(async () => {
                     type="text"
                     required
                     class="bg-black/60 border border-sonar-blue/25 p-3.5 text-xs focus:border-sonar-blue focus:outline-none rounded text-white font-mono transition-colors pointer-events-auto"
-                    placeholder="Nama kamu / Perusahaan"
+                    placeholder="who's this? (your name / brand)"
                   />
                 </div>
                 <div class="flex flex-col gap-1.5">
@@ -484,7 +484,7 @@ onMounted(async () => {
                     type="email"
                     required
                     class="bg-black/60 border border-sonar-blue/25 p-3.5 text-xs focus:border-sonar-blue focus:outline-none rounded text-white font-mono transition-colors pointer-events-auto"
-                    placeholder="email@contoh.com"
+                    placeholder="your.email@cool.com"
                   />
                 </div>
                 <div class="flex flex-col gap-1.5">
@@ -493,7 +493,7 @@ onMounted(async () => {
                     v-model="cMessage"
                     required
                     class="bg-black/60 border border-sonar-blue/25 p-3.5 text-xs focus:border-sonar-blue focus:outline-none rounded h-32 text-white font-mono resize-none transition-colors pointer-events-auto"
-                    placeholder="Hi Yosep, I'd like to talk about..."
+                    placeholder="spill your idea // what are we building?"
                   ></textarea>
                 </div>
 
@@ -600,7 +600,7 @@ onMounted(async () => {
         <div class="mt-16 pt-6 border-t border-sonar-blue/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-mono text-gray-400">
           <div class="flex items-center gap-2">
             <span class="text-sonar-orange">◆</span>
-            <span>© 2026 YOSEP GEOVANIE ARITONANG – TRANSMITTING FROM THE DEEP SEA</span>
+            <span>© 2026 YOSEP GEOVANIE ARITONANG // TRANSMITTING FROM THE DEEP SEA</span>
           </div>
 
           <a href="#about" class="border border-sonar-blue/30 text-sonar-blue hover:bg-sonar-blue/15 hover:border-sonar-blue/60 px-4 py-2 rounded transition flex items-center gap-2 font-bold uppercase tracking-wider pointer-events-auto">
