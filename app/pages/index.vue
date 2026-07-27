@@ -234,6 +234,11 @@ onMounted(async () => {
     <!-- Fullscreen Telemetry HUD UI Frame (Z-Index 30) -->
     <TelemetryHUD />
 
+    <!-- Custom Sonar Crosshair Cursor (Desktop Only) -->
+    <ClientOnly>
+      <CustomCursor />
+    </ClientOnly>
+
     <!-- ====== MAIN CONTENT (Z-Index 20) ====== -->
     <main class="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 pt-16 sm:pt-20">
 
@@ -257,16 +262,20 @@ onMounted(async () => {
             <TextScramble :text="companyProfile.hero_subtitle" :delay="400" :duration="1.8" :scrambleOnScroll="true" />
           </p>
 
-          <!-- Buttons -->
+          <!-- Magnetic Hover Buttons -->
           <div class="flex flex-wrap gap-3 sm:gap-4 mb-10 pointer-events-auto font-mono">
-            <a href="#contact" class="bg-sonar-orange hover:bg-sonar-orange/80 text-black font-bold px-5 sm:px-7 py-3 sm:py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all shadow-lg flex items-center gap-2">
-              <span>[+]</span>
-              <span>GET IN TOUCH</span>
-            </a>
-            <a href="#works" class="border border-sonar-blue/40 text-sonar-blue hover:bg-sonar-blue/15 font-bold px-5 sm:px-7 py-3 sm:py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all backdrop-blur-md flex items-center gap-2">
-              <span>[>]</span>
-              <span>SEE MY WORKS</span>
-            </a>
+            <MagneticButton tag="a" :strength="0.3">
+              <a href="#contact" class="bg-sonar-orange hover:bg-sonar-orange/80 text-black font-bold px-5 sm:px-7 py-3 sm:py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all shadow-lg flex items-center gap-2">
+                <span>[+]</span>
+                <span>GET IN TOUCH</span>
+              </a>
+            </MagneticButton>
+            <MagneticButton tag="a" :strength="0.3">
+              <a href="#works" class="border border-sonar-blue/40 text-sonar-blue hover:bg-sonar-blue/15 font-bold px-5 sm:px-7 py-3 sm:py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all backdrop-blur-md flex items-center gap-2">
+                <span>[>]</span>
+                <span>SEE MY WORKS</span>
+              </a>
+            </MagneticButton>
           </div>
         </div>
 
@@ -391,51 +400,54 @@ onMounted(async () => {
 
         <!-- Project grid with Stagger Entrance and Lazy Loading Image -->
         <div v-else class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div
+          <TiltCard
             v-for="project in projects"
             :key="project.id"
-            class="project-card-item card-glow border border-sonar-blue/20 bg-abyss-950/80 backdrop-blur-md rounded-lg overflow-hidden hover:border-sonar-blue/60 transition-all group pointer-events-auto shadow-2xl flex flex-col hover:-translate-y-1.5"
           >
-            <div v-if="project.image_url" class="w-full h-48 sm:h-56 overflow-hidden bg-black/60 relative border-b border-sonar-blue/20">
-              <img
-                :src="project.image_url"
-                :alt="project.title"
-                loading="lazy"
-                class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-              />
-            </div>
-
-            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-              <div>
-                <div class="text-[9px] text-sonar-blue font-bold tracking-wider mb-2 font-mono flex flex-wrap items-center gap-1.5">
-                  <span>PROJECT</span>
-                  <span>//</span>
-                  <span>{{ project.year }}</span>
-                  <span>//</span>
-                  <span>{{ project.category?.toUpperCase() }}</span>
-                  <template v-if="project.location">
-                    <span class="text-sonar-orange">//</span>
-                    <span class="text-sonar-orange uppercase font-bold px-1.5 py-0.5 bg-sonar-orange/10 border border-sonar-orange/30 rounded">{{ project.location }}</span>
-                  </template>
-                </div>
-                <div class="text-lg sm:text-xl font-bold mb-3 text-white">{{ project.title }}</div>
-                
-                <!-- Justified clean project description -->
-                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6 font-mono text-justify">
-                  {{ formatDesc(project.description) }}
-                </p>
+            <div
+              class="project-card-item card-glow border border-sonar-blue/20 bg-abyss-950/80 backdrop-blur-md rounded-lg overflow-hidden hover:border-sonar-blue/60 transition-all group pointer-events-auto shadow-2xl flex flex-col hover:-translate-y-1.5"
+            >
+              <div v-if="project.image_url" class="w-full h-48 sm:h-56 overflow-hidden bg-black/60 relative border-b border-sonar-blue/20">
+                <img
+                  :src="project.image_url"
+                  :alt="project.title"
+                  loading="lazy"
+                  class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                />
               </div>
 
-              <a
-                v-if="project.link"
-                :href="project.link"
-                target="_blank"
-                class="inline-flex items-center gap-1.5 text-[10px] text-sonar-blue hover:underline font-bold tracking-wider pointer-events-auto font-mono mt-auto"
-              >
-                VIEW LIVE PROJECT ↗
-              </a>
+              <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-[9px] text-sonar-blue font-bold tracking-wider mb-2 font-mono flex flex-wrap items-center gap-1.5">
+                    <span>PROJECT</span>
+                    <span>//</span>
+                    <span>{{ project.year }}</span>
+                    <span>//</span>
+                    <span>{{ project.category?.toUpperCase() }}</span>
+                    <template v-if="project.location">
+                      <span class="text-sonar-orange">//</span>
+                      <span class="text-sonar-orange uppercase font-bold px-1.5 py-0.5 bg-sonar-orange/10 border border-sonar-orange/30 rounded">{{ project.location }}</span>
+                    </template>
+                  </div>
+                  <div class="text-lg sm:text-xl font-bold mb-3 text-white">{{ project.title }}</div>
+                  
+                  <!-- Justified clean project description -->
+                  <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6 font-mono text-justify">
+                    {{ formatDesc(project.description) }}
+                  </p>
+                </div>
+
+                <a
+                  v-if="project.link"
+                  :href="project.link"
+                  target="_blank"
+                  class="inline-flex items-center gap-1.5 text-[10px] text-sonar-blue hover:underline font-bold tracking-wider pointer-events-auto font-mono mt-auto"
+                >
+                  VIEW LIVE PROJECT ↗
+                </a>
+              </div>
             </div>
-          </div>
+          </TiltCard>
         </div>
       </section>
 

@@ -123,3 +123,10 @@ body {
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
+
+/* ====== HIDE DEFAULT CURSOR ON DESKTOP (Custom Sonar Cursor Active) ====== */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
