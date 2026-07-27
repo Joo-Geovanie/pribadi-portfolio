@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#020514"/>
+  <!-- Glowing Sonar Ring -->
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#00f0ff" stroke-width="2" stroke-dasharray="4 2" opacity="0.6"/>
+  <circle cx="32" cy="32" r="14" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.4"/>
+  <!-- Futuristic Submarine Silhouette -->
+  <!-- Submarine Hull -->
+  <path d="M14 34 C14 26, 42 26, 50 34 C50 38, 42 41, 14 38 Z" fill="#00f0ff"/>
+  <!-- Conning Tower / Periscope -->
+  <path d="M28 26 L28 20 L36 20 L36 26 Z" fill="#00f0ff"/>
+  <!-- Periscope Lens -->
+  <path d="M36 20 L40 20 L40 22 L36 22 Z" fill="#ff6b00"/>
+  <!-- Front Spotlight -->
+  <circle cx="48" cy="34" r="2.5" fill="#ff6b00"/>
+  <!-- Center Propeller Light -->
+  <circle cx="16" cy="36" r="1.5" fill="#00ff66"/>
+</svg>
