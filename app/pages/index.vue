@@ -234,11 +234,6 @@ onMounted(async () => {
     <!-- Fullscreen Telemetry HUD UI Frame (Z-Index 30) -->
     <TelemetryHUD />
 
-    <!-- Custom Sonar Crosshair Cursor (Desktop Only) -->
-    <ClientOnly>
-      <CustomCursor />
-    </ClientOnly>
-
     <!-- ====== MAIN CONTENT (Z-Index 20) ====== -->
     <main class="relative z-20 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 pt-16 sm:pt-20">
 
@@ -479,7 +474,7 @@ onMounted(async () => {
                     type="text"
                     required
                     class="bg-black/60 border border-sonar-blue/25 p-3.5 text-xs focus:border-sonar-blue focus:outline-none rounded text-white font-mono transition-colors pointer-events-auto"
-                    placeholder="John Doe"
+                    placeholder="Nama kamu / Perusahaan"
                   />
                 </div>
                 <div class="flex flex-col gap-1.5">
@@ -489,7 +484,7 @@ onMounted(async () => {
                     type="email"
                     required
                     class="bg-black/60 border border-sonar-blue/25 p-3.5 text-xs focus:border-sonar-blue focus:outline-none rounded text-white font-mono transition-colors pointer-events-auto"
-                    placeholder="john.doe@gmail.com"
+                    placeholder="email@contoh.com"
                   />
                 </div>
                 <div class="flex flex-col gap-1.5">
