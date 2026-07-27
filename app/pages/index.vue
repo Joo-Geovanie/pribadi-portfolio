@@ -257,16 +257,16 @@ onMounted(async () => {
             <TextScramble :text="companyProfile.hero_subtitle" :delay="400" :duration="1.8" :scrambleOnScroll="true" />
           </p>
 
-          <!-- Magnetic Hover Buttons -->
-          <div class="flex flex-wrap gap-3 sm:gap-4 mb-10 pointer-events-auto font-mono">
-            <MagneticButton tag="a" :strength="0.3">
-              <a href="#contact" class="bg-sonar-orange hover:bg-sonar-orange/80 text-black font-bold px-5 sm:px-7 py-3 sm:py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all shadow-lg flex items-center gap-2">
+          <!-- Magnetic Hover Buttons (Identical Dimensions) -->
+          <div class="flex flex-wrap gap-3 sm:gap-4 mb-10 pointer-events-auto font-mono items-center">
+            <MagneticButton tag="div" :strength="0.3">
+              <a href="#contact" class="w-48 sm:w-52 h-12 bg-sonar-orange hover:bg-sonar-orange/80 text-black font-bold text-xs uppercase tracking-[0.15em] rounded transition-all shadow-lg flex items-center justify-center gap-2 text-center">
                 <span>[+]</span>
                 <span>GET IN TOUCH</span>
               </a>
             </MagneticButton>
-            <MagneticButton tag="a" :strength="0.3">
-              <a href="#works" class="border border-sonar-blue/40 text-sonar-blue hover:bg-sonar-blue/15 font-bold px-5 sm:px-7 py-3 sm:py-3.5 text-xs uppercase tracking-[0.2em] rounded transition-all backdrop-blur-md flex items-center gap-2">
+            <MagneticButton tag="div" :strength="0.3">
+              <a href="#works" class="w-48 sm:w-52 h-12 border border-sonar-blue/40 text-sonar-blue hover:bg-sonar-blue/15 hover:border-sonar-blue/80 font-bold text-xs uppercase tracking-[0.15em] rounded transition-all backdrop-blur-md flex items-center justify-center gap-2 text-center">
                 <span>[>]</span>
                 <span>SEE MY WORKS</span>
               </a>
